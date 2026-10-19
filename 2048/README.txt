@@ -1,28 +1,38 @@
-2048 简单离线版
+# 2048 Simple Offline Edition
 
-运行方式（Linux 桌面）
-1. 解压整个文件夹。
-2. 双击 index.html，使用 Firefox 或 Chrome 等浏览器打开。
-   如果默认打开的是编辑器，请右键选择“使用浏览器打开”。
-3. 也可以在这个文件夹打开终端，运行：
+## Running the Game (Linux Desktop)
+
+1. Extract the entire folder.
+2. Double-click `index.html` to open it in Firefox, Chrome, or another browser. If it opens in a text editor by default, right-click and choose “Open With” to select a browser.
+3. Alternatively, open a terminal in the folder and run:
+   ```bash
    bash start.sh
+   ```
 
-无需 Python、Node.js、网络连接或安装额外软件，只需要现代浏览器。
+No Python, Node.js, internet connection, or additional software installation is required. All you need is a modern browser.
 
-操作
-- 方向键 / WASD：移动全部数字。
-- 相同数字相碰时合并，每个数字在一次移动中只合并一次。
-- 有效移动后会随机出现一个 2 或 4；无效移动不会生成数字。
-- 达到 2048 后可以继续游戏。没有合法移动时游戏结束。
-- 点击“重新开始”开启新局，当前局不会保存。
-- 最高分会尝试保存在当前浏览器中；清理浏览器数据或更换文件位置可能使它重置。
-- 支持屏幕方向按钮和棋盘滑动。
+## Controls
 
-文件
-index.html  界面与样式
-game.js     游戏逻辑
-start.sh    Linux 启动脚本
-README.txt  本说明
+- **Arrow keys / WASD:** Move all tiles.
+- Matching tiles merge when they collide. Each tile can merge only once per move.
+- A successful move randomly adds a new 2 or 4 tile. Moves that leave the board unchanged do not add tiles.
+- You can continue playing after reaching 2048. The game ends when no legal moves remain.
+- Click **Restart** to start a new game. Your current game progress is not saved.
+- The game attempts to save your best score in the current browser. Clearing browser data or moving the game files may reset it.
+- On-screen direction buttons and swipe controls are also supported.
 
-规则检查（可选，需要 Node.js）
+## Files
+
+| File | Description |
+|---|---|
+| `index.html` | Interface and styles |
+| `game.js` | Game logic |
+| `start.sh` | Linux launch script |
+| `README.txt` | These instructions |
+| `test.cjs` | Game rule tests |
+
+## Rule Tests (Optional, Requires Node.js)
+
+```bash
 node test.cjs
+```
