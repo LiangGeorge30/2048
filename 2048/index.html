@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>2048</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#faf8ef;color:#776e65;font-family:system-ui,sans-serif;min-height:100vh;display:grid;place-items:center;padding:24px}main{width:min(100%,420px)}header{display:flex;align-items:center;justify-content:space-between;gap:12px}h1{font-size:68px;letter-spacing:-4px;margin:0}.scores{display:flex;gap:8px}.score{background:#bbada0;color:white;border-radius:8px;text-align:center;padding:8px 14px;min-width:75px}.score span{display:block;font-size:12px;color:#eee4da}.score strong{font-size:22px}.toolbar{display:flex;justify-content:space-between;align-items:center;margin:18px 0;gap:12px}p{font-size:14px;line-height:1.7;margin:0}button{border:0;background:#8f7a66;color:white;border-radius:7px;padding:11px 16px;font:600 14px system-ui;cursor:pointer}button:hover{background:#776452}button:focus-visible{outline:3px solid #edc22e;outline-offset:3px}.board-wrap{position:relative}.board{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;background:#bbada0;padding:10px;border-radius:12px;touch-action:none;user-select:none}.tile{aspect-ratio:1;display:grid;place-items:center;border-radius:6px;background:#cdc1b4;font-size:clamp(24px,8vw,42px);font-weight:750}.tile[data-v="2"]{background:#eee4da}.tile[data-v="4"]{background:#ede0c8}.tile[data-v="8"]{background:#f2b179;color:#fff}.tile[data-v="16"]{background:#f59563;color:#fff}.tile[data-v="32"]{background:#f67c5f;color:#fff}.tile[data-v="64"]{background:#f65e3b;color:#fff}.tile.large{background:#edc850;color:#fff;font-size:30px}.tile.huge{background:#3c3a32;color:#fff;font-size:25px}.overlay{position:absolute;inset:0;background:#faf8efe8;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:16px;text-align:center;padding:20px}.overlay[hidden]{display:none}.overlay h2{margin:0;font-size:34px}.help{margin-top:20px}.controls{display:grid;grid-template-columns:repeat(3,48px);gap:6px;justify-content:center;margin:18px 0}.controls button{padding:12px}.controls button:first-child{grid-column:2}.controls button:nth-child(2){grid-column:1}.footer{text-align:center;font-size:12px;opacity:.7;margin-top:18px}
+</style>
+</head>
+<body><main>
+<header><h1>2048</h1><div class="scores"><div class="score"><span>分数</span><strong id="score">0</strong></div><div class="score"><span>最高分</span><strong id="best">0</strong></div></div></header>
+<div class="toolbar"><p>合并相同数字，挑战 <b>2048</b>！</p><button id="restart">重新开始</button></div>
+<div class="board-wrap"><div id="board" class="board" role="group" aria-label="2048 游戏棋盘"></div><div id="overlay" class="overlay" hidden><h2 id="message"></h2><p id="detail"></p><button id="continue">继续游戏</button><button id="again">再玩一次</button></div></div>
+<p class="help">使用 <b>方向键 / WASD</b> 移动，相同数字相碰会合并。也可以点击下面的按钮，或在棋盘上滑动。</p>
+<div class="controls" aria-label="方向控制"><button data-dir="up" aria-label="向上">↑</button><button data-dir="left" aria-label="向左">←</button><button data-dir="down" aria-label="向下">↓</button><button data-dir="right" aria-label="向右">→</button></div>
+<p class="footer">离线可玩 · 无需安装 · 最高分在浏览器允许时自动保存</p>
+<div id="status" role="status" aria-live="polite" style="position:absolute;width:1px;height:1px;overflow:hidden"></div>
+</main><script src="game.js"></script></body></html>
